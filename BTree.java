@@ -18,6 +18,9 @@ public class BTree {
 		 //tr.preord_trav(this);
 		 //tr.postord_trav(this);
 		 tr.zigzag();
+		 System.out.println("-------------");
+		 tr.tree_depth();
+		 System.out.println("-------------");
 		 
 		 tr.delete(20);
 		 tr.delete(20);
@@ -204,6 +207,27 @@ class Tree { // Defines one node of a binary search tree
 		
 		}
 	}
+	protected void tree_depth(){
+		int h = tree_depth(this);
+		 System.out.println(h);
+		}
+		
+	protected int tree_depth(Tree root){
+        
+		if (root == null) return 0;
+        
+		else
+        {
+			
+            int lhgt = tree_depth(root.left);
+            int rhgt = tree_depth(root.right);
+  
+            if (lhgt > rhgt)
+                return (lhgt + 1);
+             else
+                return (rhgt + 1);
+        }
+    }
 	
 	//protected Tree root;
 	protected int value;
